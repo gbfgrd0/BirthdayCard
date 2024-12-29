@@ -148,6 +148,18 @@ audio {
 }
 
 @media screen and (max-width: 768px) {
+    #transition{
+        display: none;
+    }
+
+    #warning{
+        display: none;
+    }
+
+    .flipbook{
+        display: none;
+    }
+    
     #celular{
         background-color: white;
         width: 100vw !important;
