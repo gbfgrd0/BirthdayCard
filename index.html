@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para o meu amor &lt;3</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./images/heart.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="celular">
+        <h1>Acesse pelo computador :)</h1>
+    </div>
+    <div id="transition"></div>
+    <div id="warning">
+        <img src="./images/icons8-fones-de-ouvido-90.png">
+        <div>
+            <h3>Para uma melhor experiência, coloque o seu fone de ouvido :)</h3>
+        </div>
+        <button onclick="ativarAnimacao()">Coloquei</button>
+    </div>
+    <audio id="musica" src="./images/MarriedLife.mp3" autoplay loop></audio>
+    <div class="flipbook">
+        <div class="hard">My Pokemon Gallery <small>~ HankTheTank</small></div>
+        <div class="hard"></div>
+        <div class="page">
+            <small>Let's look at some amazing pokemon</small>
+            <small>Gotcha Catch 'Em All</small>
+        </div>
+        <div class="page">
+
+        </div>
+        <div class="hard"></div>
+        <div class="hard">Thank You <small>~ HankTheTank</small></div>
+    </div>
+
+    <script src="./scripts/jquery.js"></script>
+    <script src="./scripts/turn.js"></script>
+    <script>
+        $(".flipbook").turn();
+
+        function ativarAnimacao(){
+            const box = document.getElementById('transition');
+            const audio = document.getElementById('musica');
+            const warning = document.getElementById('warning');
+
+            box.style.display = 'block';
+            box.classList.add('animate');
+
+            setTimeout(() =>{
+                audio.play().then(() => {
+                    console.log("Música tocando!");
+                    box.classList.remove('animate');
+                    box.classList.add('fadeOut');
+                    warning.style.display = 'none';
+                }).catch((error) => {
+                    console.error("Erro ao reproduzir:", error);
+                });
+            }, 5000)
+
+            setTimeout(() => {
+                box.style.display = 'none';  
+            }, 5000);  
+        }
+    </script>
+</body>
+</html>
